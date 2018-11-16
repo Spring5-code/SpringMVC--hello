@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 1，处理器映射器 -->
+	<!-- 处理器映射器将处理器（handler）的name作为URL查找 -->
+	<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+	<!-- 2，处理器适配器 -->
+	<!-- 
+		①：所有的适配器都需要实现于HandlerAdapter接口
+		②：所有的处理器必须实现于Controller接口
+		
+	 -->
+	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+	<!--3, 视图解析器 -->
+	<!-- 缺省使用JSTL -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
+	
+	<!-- 4,处理器 -->
+	<bean id="/hello" class="hello.HelloControer"/>
+</beans>
